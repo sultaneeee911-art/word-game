@@ -1,170 +1,241 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<meta name="theme-color" content="#111827">
-<title>تحدّي الكلمات</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10152b">
+<title>تحدي الكلمات</title>
 <style>
-:root{--bg:#111827;--panel:#1d293b;--text:#f5f7fb;--muted:#aab8ca;--teal:#55d6c2;--gold:#ffd166;--pink:#ff7895;--green:#76dda0}
 *{box-sizing:border-box}
-body{margin:0;background:radial-gradient(circle at 85% -5%,#294966,transparent 35%),var(--bg);color:var(--text);font-family:system-ui,sans-serif;min-height:100vh}
-.app{max-width:720px;margin:auto;padding:16px 15px 30px}
-header,.topline{display:flex;align-items:center;justify-content:space-between}
-header{margin:3px 0 16px}
-.logo{font-weight:900;font-size:21px}
-.logo small{display:block;color:var(--muted);font-size:11px}
-.coins{background:#3d3523;border:1px solid #75633a;border-radius:30px;padding:8px 12px;color:var(--gold);font-weight:800}
-.hero{border:1px solid #3d5875;border-radius:22px;padding:17px;background:linear-gradient(125deg,#294763,#1c2b43)}
-.eyebrow{font-size:12px;color:var(--teal);font-weight:800}
-.hero h1{margin:5px 0;font-size:27px}
-.hero p{margin:0;color:#c1cede;font-size:13px;line-height:1.7}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
-.stat{background:var(--panel);border:1px solid #2c4059;border-radius:14px;text-align:center;padding:10px}
-.stat small{display:block;color:var(--muted);font-size:11px}
-.stat b{font-size:19px}
-.panel{background:var(--panel);border:1px solid #30455f;border-radius:22px;padding:15px;box-shadow:0 16px 35px #0002}
-.stage{font-weight:900}
-.tag{font-size:11px;color:var(--gold);background:#453923;padding:6px 9px;border-radius:20px}
-.progress{height:6px;background:#2b3b51;border-radius:20px;margin:12px 0 17px;overflow:hidden}
-.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),#9be8ac)}
-.mode{display:inline-flex;color:var(--teal);font-size:12px;font-weight:800;background:#203e47;border-radius:20px;padding:6px 10px}
-.prompt{text-align:center;font-size:17px;font-weight:750;line-height:1.6;margin:12px 0}
-.visual{min-height:118px;border-radius:17px;background:linear-gradient(135deg,#293e58,#243149);border:1px solid #3a526f;display:flex;align-items:center;justify-content:center;gap:12px;margin:10px 0 14px;padding:15px;flex-wrap:wrap}
-.emoji{font-size:57px}
-.letters{display:flex;justify-content:center;flex-wrap:wrap;gap:7px;margin:14px auto}
-.letter{width:42px;height:46px;border-radius:11px;background:#31445e;border:1px solid #526b8a;color:white;font-size:21px;font-weight:900}
-.letter.used{opacity:.25}
-.answer{min-height:51px;display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;border:1px dashed #536985;background:#182437;border-radius:13px;padding:7px;margin:12px 0}
-.slot{width:35px;height:36px;border-radius:8px;background:#30445d;display:grid;place-items:center;font-size:19px;font-weight:900}
-.slot.filled{background:#24504c;border:1px solid #4caa9a}
-.choices{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin:13px 0}
-.choice{background:#2b3d56;border:1px solid #49617f;color:var(--text);border-radius:12px;padding:13px 8px;font-size:17px;font-weight:800}
-.choice.correct{background:#1f503e;border-color:var(--green)}
-.choice.wrong{background:#542f40;border-color:var(--pink)}
-.actions{display:flex;gap:8px;margin-top:12px}
-.action{border:0;border-radius:12px;padding:12px 13px;font-weight:850;font-size:14px}
-.hint{background:#463b27;color:var(--gold);flex:1}
-.clear{background:#33445c;color:#dce6f2}
-.next{background:var(--teal);color:#10232c;flex:1}
-.action:disabled{opacity:.4}
-.feedback{text-align:center;min-height:26px;color:var(--muted);font-size:13px;line-height:1.6;margin-top:9px}
-.hintbox{display:none;background:#423924;border:1px solid #806b3d;color:#ffe5a2;border-radius:12px;padding:10px;margin-top:9px;font-size:13px}
-.hintbox.show{display:block}
-.footer{text-align:center;color:#7789a1;font-size:11px;margin:15px 0}
-@media(max-width:390px){.app{padding:11px}.panel{padding:12px}.letter{width:37px;height:42px}.hero h1{font-size:24px}}
+body{
+ margin:0;font-family:system-ui,Tahoma,Arial;
+ background:linear-gradient(145deg,#10152b,#202d50);
+ color:#fff;min-height:100vh;padding:20px;
+}
+.container{max-width:650px;margin:auto}
+header{text-align:center;padding:25px 10px}
+.logo{font-size:48px}
+h1{font-size:32px;margin:8px 0}
+.subtitle{color:#aebbd8}
+.stats{display:flex;gap:12px;margin:15px 0}
+.stat{
+ flex:1;background:#ffffff12;border:1px solid #ffffff20;
+ padding:14px;border-radius:16px;text-align:center
+}
+.stat strong{display:block;font-size:23px;color:#7ee7d1}
+.panel{
+ background:#ffffff12;border:1px solid #ffffff20;
+ border-radius:24px;padding:22px;margin-top:18px;
+ box-shadow:0 15px 40px #0003
+}
+.modes{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mode{
+ border:1px solid #ffffff25;background:#ffffff10;
+ color:white;padding:18px 8px;border-radius:18px;
+ font-size:16px;cursor:pointer;transition:.2s
+}
+.mode:active,.mode:hover{background:#ffffff25;transform:scale(.98)}
+.mode span{display:block;font-size:30px;margin-bottom:8px}
+button{font-family:inherit}
+.primary{
+ width:100%;border:0;border-radius:15px;padding:15px;
+ background:linear-gradient(90deg,#26c6a5,#48a8ee);
+ color:#071b2b;font-size:17px;font-weight:bold;cursor:pointer
+}
+.question{text-align:center;font-size:23px;line-height:1.7;margin:20px 0}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.choice{
+ padding:15px 8px;border-radius:14px;border:1px solid #ffffff30;
+ background:#ffffff12;color:white;font-size:17px;cursor:pointer
+}
+.choice:disabled{cursor:default;opacity:1}
+.correct{background:#168c69!important;border-color:#50e0b5!important}
+.wrong{background:#a83b54!important;border-color:#ff8198!important}
+.feedback{text-align:center;min-height:35px;margin:15px 0;font-weight:bold}
+.hidden{display:none!important}
+.back{
+ background:transparent;color:#b8c9e9;border:0;
+ padding:8px 0;cursor:pointer;font-size:15px
+}
+.progress{height:8px;background:#ffffff20;border-radius:20px;overflow:hidden}
+.progress div{height:100%;background:#55dfbd;width:0;transition:.3s}
+.emoji{font-size:75px;text-align:center;margin:20px}
+.word{letter-spacing:8px;font-size:30px;text-align:center;margin:25px}
+.footer{text-align:center;color:#8291b3;font-size:12px;margin:25px}
+@media(max-width:400px){
+ body{padding:12px}.panel{padding:16px}
+ .question{font-size:20px}.choice{font-size:15px}
+}
 </style>
 </head>
 <body>
-<div class="app">
-<header><div class="logo">تحدّي الكلمات<small>كل مرحلة لغز جديد</small></div><div class="coins">🪙 <span id="coins">30</span></div></header>
-<section class="hero"><div class="eyebrow">مغامرة ذهنية لا تنتهي</div><h1>فكّر، اكتشف، وتقدّم!</h1><p>كوّن الكلمات، حلّ الصور، واكتشف الروابط الخفية. تتبدّل أنواع التحديات وتزداد صعوبتها كلما تقدّمت.</p></section>
-<section class="stats"><div class="stat"><small>المرحلة</small><b id="level">1</b></div><div class="stat"><small>النقاط</small><b id="score">0</b></div><div class="stat"><small>أفضل مرحلة</small><b id="best">1</b></div></section>
-<main class="panel">
-<div class="topline"><div class="stage" id="stageTitle">المرحلة 1</div><div class="tag" id="difficulty">بداية الرحلة</div></div>
-<div class="progress"><span id="bar"></span></div>
-<div class="mode" id="mode">🔤 تكوين كلمة</div>
-<div class="prompt" id="prompt">رتّب الحروف لتكوين كلمة صحيحة</div>
-<div id="gameArea"></div>
-<div class="hintbox" id="hintBox"></div>
-<div class="feedback" id="feedback">حل اللغز لتحصل على نقاط وتفتح المرحلة التالية.</div>
-<div class="actions"><button class="action hint" id="hintBtn">💡 تلميح (5)</button><button class="action clear" id="clearBtn">مسح</button><button class="action next" id="nextBtn" disabled>التالي ←</button></div>
-</main>
-<div class="footer">تُنشأ التحديات من قوالب وكلمات متنوعة، ويُحفظ تقدمك على هذا الجهاز.</div>
+<div class="container">
+<header>
+ <div class="logo">🧩</div>
+ <h1>تحدي الكلمات</h1>
+ <div class="subtitle">اختبر ذكاءك وسرعة تفكيرك!</div>
+</header>
+
+<div class="stats">
+ <div class="stat">النقاط<strong id="score">0</strong></div>
+ <div class="stat">المرحلة<strong id="level">1</strong></div>
+ <div class="stat">أفضل نتيجة<strong id="best">0</strong></div>
 </div>
+
+<section id="home" class="panel">
+ <h2>اختر نمط اللعب</h2>
+ <div class="modes">
+  <button class="mode" onclick="startGame('word')"><span>🔤</span>تكوين كلمة</button>
+  <button class="mode" onclick="startGame('picture')"><span>🖼️</span>خمن الصورة</button>
+  <button class="mode" onclick="startGame('link')"><span>🔗</span>الرابط المشترك</button>
+  <button class="mode" onclick="startGame('riddle')"><span>🧠</span>لغز ذكي</button>
+ </div>
+</section>
+
+<section id="game" class="panel hidden">
+ <button class="back" onclick="goHome()">← القائمة الرئيسية</button>
+ <div class="progress"><div id="progress"></div></div>
+ <div id="modeName" class="subtitle" style="text-align:center;margin-top:15px"></div>
+ <div id="question" class="question"></div>
+ <div id="emoji" class="emoji hidden"></div>
+ <div id="choices" class="choices"></div>
+ <div id="feedback" class="feedback"></div>
+ <button id="next" class="primary hidden" onclick="nextQuestion()">السؤال التالي ←</button>
+</section>
+
+<section id="end" class="panel hidden" style="text-align:center">
+ <div style="font-size:60px">🏆</div>
+ <h2>انتهت الجولة!</h2>
+ <p>نتيجتك</p>
+ <h1 id="finalScore" style="color:#7ee7d1"></h1>
+ <button class="primary" onclick="goHome()">العب مرة أخرى</button>
+</section>
+<div class="footer">تحدي الكلمات • فكّر، اكتشف، واستمتع</div>
+</div>
+
 <script>
-const $=id=>document.getElementById(id);
-const banks=[
-{w:'مدرسة',e:'🏫',c:'مكان نتعلم فيه ونلتقي بالمعلمين',cat:'أماكن'},
-{w:'تفاحة',e:'🍎',c:'فاكهة حمراء أو خضراء',cat:'طعام'},
-{w:'مفتاح',e:'🔑',c:'نستخدمه لفتح الباب',cat:'أشياء'},
-{w:'طائرة',e:'✈️',c:'وسيلة نقل تطير في السماء',cat:'مواصلات'},
-{w:'قمر',e:'🌙',c:'نراه مضيئاً في الليل',cat:'فضاء'},
-{w:'نحلة',e:'🐝',c:'حشرة تصنع العسل',cat:'حيوانات'},
-{w:'ساعة',e:'⌚',c:'تخبرنا بالوقت',cat:'أشياء'},
-{w:'كتاب',e:'📚',c:'نقرأ منه القصص والمعلومات',cat:'أشياء'},
-{w:'شمس',e:'☀️',c:'مصدر الضوء والدفء في النهار',cat:'فضاء'},
-{w:'سمكة',e:'🐟',c:'تعيش في الماء',cat:'حيوانات'},
-{w:'سيارة',e:'🚗',c:'وسيلة نقل لها عجلات',cat:'مواصلات'},
-{w:'موز',e:'🍌',c:'فاكهة صفراء',cat:'طعام'},
-{w:'حديقة',e:'🌳',c:'مكان مليء بالنباتات والأشجار',cat:'أماكن'},
-{w:'حاسوب',e:'💻',c:'جهاز نستخدمه للعمل والتعلم',cat:'تقنية'},
-{w:'فراشة',e:'🦋',c:'حشرة لها أجنحة ملونة',cat:'حيوانات'},
-{w:'مطر',e:'🌧️',c:'ماء ينزل من السحب',cat:'طقس'},
-{w:'منظار',e:'🔭',c:'أداة تساعدنا على رؤية الأجرام البعيدة',cat:'أدوات'},
-{w:'خبز',e:'🍞',c:'طعام يُصنع غالباً من الدقيق',cat:'طعام'},
-{w:'هاتف',e:'📱',c:'جهاز للاتصال والتواصل',cat:'تقنية'},
-{w:'جبل',e:'⛰️',c:'ارتفاع كبير من الصخور والأرض',cat:'طبيعة'},
-{w:'مظلة',e:'☂️',c:'تحمينا من المطر',cat:'أشياء'},
-{w:'حصان',e:'🐎',c:'حيوان يمكن ركوبه',cat:'حيوانات'},
-{w:'نجمة',e:'⭐',c:'جسم مضيء نراه في السماء ليلاً',cat:'فضاء'},
-{w:'ملعقة',e:'🥄',c:'نأكل بها الحساء',cat:'أدوات'}
-];
-const groups=[
-{q:'ما الرابط المشترك بين هذه الصور؟',items:['🍎','🍌','🍇'],a:'فواكه',opts:['فواكه','خضروات','حيوانات','أدوات'],hint:'كلها أطعمة حلوة تنمو على النباتات.'},
-{q:'ما الرابط المشترك بين هذه الصور؟',items:['🚗','🚌','🚲'],a:'مواصلات',opts:['مواصلات','ألعاب','ملابس','مهن'],hint:'كلها تساعدنا على الانتقال من مكان إلى آخر.'},
-{q:'ما الرابط المشترك بين هذه الصور؟',items:['🐱','🐶','🐰'],a:'حيوانات',opts:['طيور','حيوانات','أطعمة','أجهزة'],hint:'كلها كائنات حية قد نربيها في المنزل.'},
-{q:'ما الرابط المشترك بين هذه الصور؟',items:['☀️','🌙','⭐'],a:'سماء',opts:['بحر','سماء','غابة','مدينة'],hint:'انظر إلى المكان الذي تظهر فيه هذه الأشياء.'},
-{q:'ما الرابط المشترك بين هذه الصور؟',items:['✏️','📏','📚'],a:'مدرسة',opts:['مطبخ','مدرسة','حديقة','ملعب'],hint:'نستخدمها في التعلم والدراسة.'},
-{q:'ما الرابط المشترك بين هذه الصور؟',items:['🔨','🪛','🪚'],a:'أدوات',opts:['فواكه','ملابس','أدوات','رياضة'],hint:'تُستخدم للمساعدة في التصليح والعمل اليدوي.'}
-];
-const riddles=[
-{q:'شيء كلما أخذت منه كبر، ما هو؟',a:'الحفرة',opts:['الحفرة','الكتاب','البحر','الظل'],hint:'فكّر في شيء يتسع عندما نزيل منه التراب.'},
-{q:'له أسنان ولا يعض، ما هو؟',a:'المشط',opts:['المشط','الأسد','المفتاح','المنشار'],hint:'نستخدمه لترتيب الشعر.'},
-{q:'يمشي بلا قدمين ويبكي بلا عينين، ما هو؟',a:'السحاب',opts:['السحاب','الطفل','النهر','القلم'],hint:'تأمل ما يتحرك في السماء وقد ينزل منه المطر.'},
-{q:'ما الشيء الذي نراه ولا نستطيع لمسه؟',a:'الظل',opts:['الظل','الحجر','الكرسي','الماء'],hint:'يظهر مع وجود الضوء.'},
-{q:'بيت بلا أبواب ولا نوافذ، ما هو؟',a:'البيضة',opts:['البيضة','المدرسة','السيارة','الخيمة'],hint:'غلافه يحمي ما بداخله.'},
-{q:'ما الشيء الذي يكتب ولا يقرأ؟',a:'القلم',opts:['القلم','الطالب','الكتاب','المعلم'],hint:'نمسكه بأيدينا عند الكتابة.'}
-];
-let level=1,score=0,coins=Number(localStorage.getItem('wordCoins')||30),best=Number(localStorage.getItem('wordBest')||1),solved=false,hints=0,current=null,selected=[],seen=new Set(JSON.parse(localStorage.getItem('wordSeen')||'[]'));
-function shuffle(a,seed){let x=a.slice();for(let i=x.length-1;i>0;i--){let j=Math.abs(Math.floor(Math.sin(seed*91+i*17)*100000))%(i+1);[x[i],x[j]]=[x[j],x[i]]}return x}
-function typeFor(n){return(n-1)%5}
-function pick(arr,seed){return arr[Math.abs(Math.floor(Math.sin(seed*71)*100000))%arr.length]}
-function generate(){
- let type=typeFor(level),round=Math.floor((level-1)/5),seed=level+round*13;
- if(type===0||type===1){
-  let pool=shuffle(banks,seed+round).filter(x=>!seen.has('w:'+x.w));
-  if(!pool.length){seen.clear();pool=shuffle(banks,seed+round)}
-  let item=pool[0];current={type:'word',item,answer:item.w,hint:'تأمل معنى الكلمة: '+item.c+'.'};seen.add('w:'+item.w);
- }else if(type===2){let g=pick(groups,seed);current={type:'group',data:g,answer:g.a,hint:g.hint}}
- else if(type===3){let item=pick(banks.filter(x=>x.w.length>=3),seed+4);current={type:'search',item,answer:item.w,hint:'الكلمة تتعلق بفئة: '+item.cat+'.'}}
- else{let r=pick(riddles,seed);current={type:'riddle',data:r,answer:r.a,hint:r.hint}}
- localStorage.setItem('wordSeen',JSON.stringify([...seen]));
-}
-function render(){
- solved=false;hints=0;selected=[];generate();
- $('level').textContent=level;$('stageTitle').textContent='المرحلة '+level;$('score').textContent=score;$('best').textContent=best;$('coins').textContent=coins;
- $('difficulty').textContent=level<6?'مبتدئ':level<16?'متوسط':level<31?'متقدم':'خبير';
- $('bar').style.width=((level-1)%10+1)*10+'%';$('hintBox').className='hintbox';$('hintBox').textContent='';$('hintBtn').disabled=false;$('nextBtn').disabled=true;$('feedback').textContent='حل اللغز لتحصل على نقاط وتفتح المرحلة التالية.';
- const area=$('gameArea');
- if(current.type==='word'||current.type==='search'){
-  let item=current.item,letters=shuffle([...item.w],level*7+3);
-  $('mode').textContent=current.type==='word'?'🔤 تكوين كلمة':'🖼️ خمن الكلمة';
-  $('prompt').textContent=current.type==='word'?'رتّب الحروف لتكوين الكلمة المناسبة':'ما الكلمة التي تعبّر عنها الصورة؟';
-  area.innerHTML=`<div class="visual"><div class="emoji">${item.e}</div><div style="color:#c5d1df;font-size:13px">${current.type==='search'?'اكتب اسم الشيء الذي تراه':'تلميح: '+item.cat}</div></div><div class="answer" id="answer"></div><div class="letters" id="letters"></div>`;
-  letters.forEach((ch,i)=>{let b=document.createElement('button');b.className='letter';b.textContent=ch;b.onclick=()=>addLetter(i,ch,b);$('letters').appendChild(b)});
-  drawSlots();
- }else if(current.type==='group'){
-  $('mode').textContent='🧩 الرابط المشترك';$('prompt').textContent=current.data.q;
-  area.innerHTML='<div class="visual">'+current.data.items.map(e=>`<span class="emoji">${e}</span>`).join('')+'</div><div class="choices" id="choices"></div>';
-  addChoices(current.data.opts,current.answer);
- }else{
-  $('mode').textContent='💡 لغز ذكي';$('prompt').textContent=current.data.q;
-  area.innerHTML='<div class="visual"><span class="emoji">🧠</span><span style="font-size:13px;color:#c5d1df">فكّر جيداً قبل الاختيار</span></div><div class="choices" id="choices"></div>';
-  addChoices(current.data.opts,current.answer);
+const data={
+ word:[
+  {q:"رتّب الحروف لتكوين اسم حيوان",e:"ب ق ر",a:"بقر",c:["بقر","قرب","برق","قرب"]},
+  {q:"رتّب الحروف لتكوين شيء نستخدمه للكتابة",e:"م ل ق",a:"قلم",c:["قلم","ملق","قلمون","قمل"]},
+  {q:"رتّب الحروف لتكوين فاكهة",e:"ح ف ت ا",a:"تفاح",c:["تفاح","حافة","فاتح","حوت"]},
+  {q:"رتّب الحروف لتكوين شيء في السماء",e:"م ج ن",a:"نجم",c:["نجم","منج","جمن","نمج"]},
+  {q:"رتّب الحروف لتكوين وسيلة نقل",e:"ر ق ط ا",a:"قطار",c:["قطار","طريق","قراط","طارق"]},
+  {q:"رتّب الحروف لتكوين شيء نقرأه",e:"ك ت ا ب",a:"كتاب",c:["كتاب","كاتب","كبات","تابك"]}
+ ],
+ picture:[
+  {q:"ما هذا الشيء؟",e:"🦁",a:"أسد",c:["أسد","نمر","ذئب","حصان"]},
+  {q:"ما هذه الفاكهة؟",e:"🍉",a:"بطيخ",c:["تفاح","بطيخ","عنب","برتقال"]},
+  {q:"ما هذا؟",e:"🚀",a:"صاروخ",c:["طائرة","صاروخ","سيارة","قطار"]},
+  {q:"ما هذا الحيوان؟",e:"🐬",a:"دلفين",c:["سمكة","دلفين","قرش","حوت"]},
+  {q:"ما هذا الشيء؟",e:"🎸",a:"جيتار",c:["كمان","عود","جيتار","بيانو"]},
+  {q:"ما هذا؟",e:"🌵",a:"صبار",c:["شجرة","صبار","زهرة","عشب"]}
+ ],
+ link:[
+  {q:"ما الرابط المشترك بين: تفاح، موز، برتقال؟",a:"فواكه",c:["خضروات","فواكه","حيوانات","أدوات"]},
+  {q:"ما الرابط المشترك بين: قطة، أسد، نمر؟",a:"حيوانات",c:["طيور","حيوانات","حشرات","أسماك"]},
+  {q:"ما الرابط المشترك بين: قلم، ممحاة، مسطرة؟",a:"أدوات مدرسية",c:["ألعاب","أدوات مطبخ","أدوات مدرسية","ملابس"]},
+  {q:"ما الرابط المشترك بين: شتاء، ربيع، صيف؟",a:"فصول السنة",c:["أيام الأسبوع","فصول السنة","أشهر السنة","كواكب"]},
+  {q:"ما الرابط المشترك بين: أحمر، أزرق، أخضر؟",a:"ألوان",c:["أشكال","ألوان","أرقام","حروف"]},
+  {q:"ما الرابط المشترك بين: مكة، الرياض، جدة؟",a:"مدن",c:["أنهار","جبال","مدن","قارات"]}
+ ],
+ riddle:[
+  {q:"شيء له أسنان ولا يعض، ما هو؟",a:"المشط",c:["المشط","الكرسي","الباب","القلم"]},
+  {q:"ما الشيء الذي كلما أخذت منه كبر؟",a:"الحفرة",c:["البحر","الحفرة","الجبل","الكتاب"]},
+  {q:"ما الشيء الذي يكتب ولا يقرأ؟",a:"القلم",c:["الكتاب","القلم","الطالب","الهاتف"]},
+  {q:"له عين واحدة ولا يرى، ما هو؟",a:"الإبرة",c:["الإبرة","الإنسان","السمكة","الكاميرا"]},
+  {q:"ما الشيء الذي يسمع بلا أذن ويتكلم بلا لسان؟",a:"الهاتف",c:["الكتاب","الهاتف","الساعة","المفتاح"]},
+  {q:"ما الشيء الذي يمشي بلا أرجل؟",a:"الوقت",c:["الوقت","الطفل","الحصان","الطائر"]}
+ ]
+};
+
+const names={word:"🔤 تكوين كلمة",picture:"🖼️ خمن الصورة",link:"🔗 الرابط المشترك",riddle:"🧠 لغز ذكي"};
+let mode="",questions=[],index=0,score=0,locked=false;
+let best=Number(localStorage.getItem("wordBest")||0);
+document.getElementById("best").textContent=best;
+
+function shuffle(arr){
+ let a=[...arr];
+ for(let i=a.length-1;i>0;i--){
+  let j=Math.floor(Math.random()*(i+1));
+  [a[i],a[j]]=[a[j],a[i]];
  }
- $('clearBtn').style.display=(current.type==='word'||current.type==='search')?'block':'none';
+ return a;
 }
-function drawSlots(){let box=$('answer');box.innerHTML='';for(let i=0;i<[...current.answer].length;i++){let s=document.createElement('div');s.className='slot'+(selected[i]?' filled':'');s.textContent=selected[i]?.ch||'';box.appendChild(s)}}
-function addLetter(i,ch,b){if(solved||b.classList.contains('used'))return;b.classList.add('used');selected.push({i,ch});drawSlots();if(selected.length===[...current.answer].length)checkWord()}
-function checkWord(){let v=selected.map(x=>x.ch).join('');if(v===current.answer){win()}else{$('feedback').textContent='ليست الكلمة المطلوبة، جرّب ترتيباً آخر.';setTimeout(()=>{if(!solved){selected.forEach(x=>document.querySelectorAll('.letter')[x.i]?.classList.remove('used'));selected=[];drawSlots()}},650)}}
-function addChoices(opts,answer){let list=shuffle(opts,level+7);list.forEach(v=>{let b=document.createElement('button');b.className='choice';b.textContent=v;b.onclick=()=>{if(solved)return;if(v===answer){b.classList.add('correct');win()}else{b.classList.add('wrong');b.disabled=true;$('feedback').textContent='إجابة غير صحيحة، حاول مجدداً.'}};$('choices').appendChild(b)})}
-function win(){if(solved)return;solved=true;let gain=Math.max(5,15-hints*4);score+=gain;coins+=hints?0:2;$('score').textContent=score;$('coins').textContent=coins;$('feedback').textContent='إجابة صحيحة! +'+gain+' نقطة'+(hints?'':' و +2 عملة');$('nextBtn').disabled=false;$('hintBtn').disabled=true;document.querySelectorAll('.choice,.letter').forEach(x=>x.disabled=true);best=Math.max(best,level+1);localStorage.setItem('wordBest',best);localStorage.setItem('wordCoins',coins)}
-$('hintBtn').onclick=()=>{if(solved)return;if(hints===0){if(coins<5){$('feedback').textContent='تحتاج 5 عملات لاستخدام التلميح.';return}coins-=5;hints=1;$('coins').textContent=coins;$('hintBox').className='hintbox show';$('hintBox').textContent='💡 '+current.hint;}else if(hints===1){hints=2;$('hintBox').textContent='الإجابة: '+current.answer;$('hintBtn').disabled=true;if(current.type==='word'||current.type==='search'){selected=[...current.answer].map((ch,i)=>({ch,i}));drawSlots();win()}else{document.querySelectorAll('.choice').forEach(b=>{if(b.textContent===current.answer)b.classList.add('correct')});win()}}};
-$('clearBtn').onclick=()=>{if(solved)return;selected.forEach(x=>document.querySelectorAll('.letter')[x.i]?.classList.remove('used'));selected=[];drawSlots();$('feedback').textContent='تم مسح الحروف.'};
-$('nextBtn').onclick=()=>{if(!solved)return;level++;render()};
-render();
+function startGame(m){
+ mode=m;questions=shuffle(data[m]);index=0;score=0;
+ document.getElementById("score").textContent=0;
+ document.getElementById("home").classList.add("hidden");
+ document.getElementById("end").classList.add("hidden");
+ document.getElementById("game").classList.remove("hidden");
+ showQuestion();
+}
+function showQuestion(){
+ locked=false;
+ const item=questions[index];
+ document.getElementById("level").textContent=index+1;
+ document.getElementById("modeName").textContent=names[mode];
+ document.getElementById("question").textContent=item.q;
+ document.getElementById("feedback").textContent="";
+ document.getElementById("next").classList.add("hidden");
+ document.getElementById("progress").style.width=(index/questions.length*100)+"%";
+
+ const emoji=document.getElementById("emoji");
+ if(item.e){emoji.textContent=item.e;emoji.classList.remove("hidden")}
+ else{emoji.classList.add("hidden")}
+
+ const choices=document.getElementById("choices");
+ choices.innerHTML="";
+ shuffle(item.c).forEach(answer=>{
+  const b=document.createElement("button");
+  b.className="choice";b.textContent=answer;
+  b.onclick=()=>choose(b,answer,item.a);
+  choices.appendChild(b);
+ });
+}
+function choose(button,answer,correct){
+ if(locked)return;
+ locked=true;
+ const buttons=[...document.querySelectorAll(".choice")];
+ buttons.forEach(b=>{
+  b.disabled=true;
+  if(b.textContent===correct)b.classList.add("correct");
+ });
+ if(answer===correct){
+  score+=10;
+  document.getElementById("score").textContent=score;
+  document.getElementById("feedback").textContent="إجابة صحيحة! +10 نقاط";
+  document.getElementById("feedback").style.color="#65e8bd";
+ }else{
+  button.classList.add("wrong");
+  document.getElementById("feedback").textContent="إجابة غير صحيحة. الصحيحة: "+correct;
+  document.getElementById("feedback").style.color="#ff9aaa";
+ }
+ document.getElementById("next").textContent=
+  index===questions.length-1?"عرض النتيجة":"السؤال التالي ←";
+ document.getElementById("next").classList.remove("hidden");
+}
+function nextQuestion(){
+ index++;
+ if(index>=questions.length){finish();return}
+ showQuestion();
+}
+function finish(){
+ document.getElementById("game").classList.add("hidden");
+ document.getElementById("end").classList.remove("hidden");
+ document.getElementById("finalScore").textContent=score+" نقطة";
+ if(score>best){
+  best=score;localStorage.setItem("wordBest",best);
+  document.getElementById("best").textContent=best;
+ }
+}
+function goHome(){
+ document.getElementById("game").classList.add("hidden");
+ document.getElementById("end").classList.add("hidden");
+ document.getElementById("home").classList.remove("hidden");
+ document.getElementById("level").textContent=1;
+}
 </script>
 </body>
 </html>
